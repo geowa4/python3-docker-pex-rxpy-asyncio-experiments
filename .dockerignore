@@ -1,0 +1,6 @@
+README.md
+.gitignore
+build.sh
+*.pyc
+*.pex
+__pycache__

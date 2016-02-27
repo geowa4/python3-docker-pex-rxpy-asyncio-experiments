@@ -1,0 +1,4 @@
+FROM python:3.5-slim
+EXPOSE 8888
+CMD [ "/pex.pex" ]
+COPY pex.pex /pex.pex
