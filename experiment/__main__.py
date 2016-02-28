@@ -6,7 +6,7 @@ parser = argparse.ArgumentParser(
     description='Experiment with RxPY and asyncio.'
 )
 parser.add_argument(
-    '--interval', type=int, default=10000,
+    '--interval', type=int, default=1000*60,
     help='Resync interval'
 )
 parser.add_argument(

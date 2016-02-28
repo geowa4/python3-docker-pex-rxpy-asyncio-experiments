@@ -15,7 +15,12 @@ def run(interval, port):
 
     all_events = server.tcp_subject.map(
         lambda x: x[0].strip()
-    ).merge(clock)
+    ).merge(
+        clock
+    ).debounce(
+        int(interval / 10),
+        scheduler=scheduler
+    )
     all_events.subscribe(observer)
 
     server.start(port)
