@@ -9,10 +9,12 @@ asyncio = rx.config['asyncio']
 def run(interval, port):
     scheduler = AsyncIOScheduler()
     clock = Observable.interval(interval, scheduler=scheduler)
-    server = TCPServer(asyncio.get_event_loop())
+    loop = asyncio.get_event_loop()
+    server = TCPServer(loop)
     observer = SimpleObserver()
 
     all_events = clock.merge(server.tcp_subject)
     all_events.subscribe(observer)
 
     server.start(port)
+    loop.close()

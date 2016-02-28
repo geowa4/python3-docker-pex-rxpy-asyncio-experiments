@@ -23,4 +23,3 @@ class TCPServer:
         # Close the server
         server.close()
         self.loop.run_until_complete(server.wait_closed())
-        self.loop.close()
